@@ -15,6 +15,7 @@
     "jest": "^27.2.4",
     "mongoose": "^6.0.9",
     "nodemon": "^2.0.13",
-    "package.json": "^2.0.1"
+    "package.json": "^2.0.1",
+    "supertest": "^6.1.6"
   }
 }
