@@ -1,0 +1,10 @@
+input {
+    border: 1px solid #99AEBB;
+    color: #354A54;
+    outline: #99AEBB;
+    width: 15vw;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 3px;
+    margin-left: 3px;
+}
