@@ -34,7 +34,7 @@ const Cadastro = () => {
         toast.success("（*＾-＾*） Conta criada com sucesso ");
         history.push("/login");
       } else {
-        toast.error(` ( •̀ ω •́ )y ${data.error}`)
+        toast.error(` ( •̀ ω •́ )y  ${data.error}`)
       }
 
     } catch (error) {
