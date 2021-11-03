@@ -3,7 +3,7 @@ import './styles.css'
 
 const PrimaryButton = (props) => {
     return (
-        <div className="buttonContainer">
+        <div onClick={props.onClick} className="buttonContainer">
             {props.title}
         </div>
     )

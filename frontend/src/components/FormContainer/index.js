@@ -8,7 +8,7 @@ const FormContainer = (props) => {
       <form className="formContainer">
         <h2 className="formTitle">{props.title}</h2>
         <div className="formInputs">{props.children}</div>
-        <PrimaryButton title={props.buttonTitle} />
+        <PrimaryButton title={props.buttonTitle} onClick={props.onClick}/>
       </form>
     </div>
   );
