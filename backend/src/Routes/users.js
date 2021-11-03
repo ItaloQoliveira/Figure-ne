@@ -37,10 +37,10 @@ router.post('/auth', async (req,res)=>{
 
     try {
         const user = await Users.findOne({email}).select('+password');
-        if(!user) return false//return res.status(402).send({error:'Usuário não consta no banco de dados'});
+        if(!user) return res.status(402).send({error:'Usuário não consta no banco de dados'});
 
         const passOk = await bcrypt.compare(password,user.password);
-        if(!passOk) return false//return res.status(401).send({error:'Erro ao autenticar usuário!'}); //aqui
+        if(!passOk) return res.status(401).send({error:'Erro ao autenticar usuário!'}); //aqui
 
         user.password = undefined;
 
@@ -48,7 +48,7 @@ router.post('/auth', async (req,res)=>{
 
         res.cookie('token', `${token}`, { httpOnly: true })
 
-        res.redirect('/main');
+        res.status(200).send("Autenticação realizada com sucesso, token aplicado!");
 
 
     } catch (err) {
