@@ -2,13 +2,17 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import Cadastro from "./pages/Cadastro";
 import Login from "./pages/Login";
 import MyStore from "./pages/MyStore";
+import { useSelector } from "react-redux";
 
 const Routes = () => {
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
     return (
         <Router>            
             <Switch>
@@ -17,9 +21,12 @@ const Routes = () => {
             <Switch>
                 <Route path="/login" component={Login}/>
             </Switch> 
-            <Switch>
+            {isLoggedIn && <Switch>
                 <Route path="/mystore" component={MyStore}/>
-            </Switch>           
+            </Switch>}
+            <Route path='*'>
+                <Redirect to='/login'/>
+            </Route>
         </Router>
     )
 }
