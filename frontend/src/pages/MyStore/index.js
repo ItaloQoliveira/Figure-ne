@@ -6,7 +6,6 @@ import { FaPlus } from "react-icons/fa";
 import "./styles.css";
 
 const MyStore = () => {
-
   const [modalState, setModalState] = useState(false);
   const modalStatusHandler = (status) => {
     setModalState(status);
@@ -15,7 +14,7 @@ const MyStore = () => {
   return (
     <div className="container">
       {modalState && <Modal modalStatusHandler={modalStatusHandler}/>}
-      <Header />
+      <Header isMyStore/>
       
       <div className="addButton">
         <PrimaryButton onClick={() => modalStatusHandler(true)}>

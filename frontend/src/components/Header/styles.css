@@ -56,6 +56,9 @@
     color: #FFFFFF;
     font-size: 24px;
     margin-left: 1vw;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .linkDivision {

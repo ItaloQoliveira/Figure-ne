@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logIn, setLoggedUser } from "../../store";
 import {useHistory} from 'react-router-dom'
 import FormContainer from "../../components/FormContainer";
 import Header from "../../components/Header";
@@ -11,6 +13,7 @@ const Login = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const loginHandler = async () => {
     try {
@@ -23,12 +26,15 @@ const Login = () => {
         }),
         headers: {
           "Content-Type": "application/json",
-        },
+        }
       });
 
       
       if (response.ok) {
         toast.success("(✿◡‿◡) Usuário logado! ");
+        dispatch(logIn());
+        dispatch(setLoggedUser(enteredEmail));
+        history.push('/mystore')
       } else {
         const data = await response.json();
         toast.error(` ( •̀ ω •́ )y ${data.error}`)
@@ -37,6 +43,19 @@ const Login = () => {
       console.log(error)
     }
   };
+
+  // const testHandler = async() => {
+  //   const response = await fetch('http://localhost:3003/users/teste', {
+  //     headers: {
+  //       'Authorization': 'Token ' + process.env.API_TOKEN,
+  //       'Content-Type': 'application/x-www-form-urlencoded'
+  //     },
+  //     method: 'GET',
+  //     credentials: 'include'
+  //   })
+  //   // const data = await response.json();
+  //   console.log(response)
+  // }
 
   return (
     <div className="container">
