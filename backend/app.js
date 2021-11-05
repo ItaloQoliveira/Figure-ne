@@ -31,9 +31,10 @@ app.use(cookieParser());
 app.use(cors());
 
 const usersRoute = require('./src/Routes/users');
+const figuresRoute = require('./src/Routes/figures');
 
 app.use('/users',usersRoute); //criando a rota de usuario
-
+app.use('/figures',figuresRoute); //criando a rota de figures
 app.use((req, res) => {
     res.send('404: Página não encontrada')
 })
