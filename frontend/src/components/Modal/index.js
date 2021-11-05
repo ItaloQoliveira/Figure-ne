@@ -82,7 +82,7 @@ const Modal = (props) => {
           <div className="inputWrapper">
             <FormInput
               type="text"
-              placeholder="Altura"
+              placeholder="Altura (cm)"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
             />
