@@ -16,7 +16,7 @@ const Header = () => {
           <FaSistrix className="searchIcon" size="20"/>
       </div>
       <nav className="nav">
-          <NavLink className="navLink linkDivision" to="/cadastro">Cadastrar</NavLink>
+          <NavLink className="navLink linkDivision" to="/register">Cadastrar</NavLink>
           <NavLink className="navLink" to="/login">Login</NavLink>
       </nav>
     </div>

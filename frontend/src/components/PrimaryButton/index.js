@@ -4,7 +4,7 @@ import './styles.css'
 const PrimaryButton = (props) => {
     return (
         <div onClick={props.onClick} className="buttonContainer">
-            {props.title}
+            {props.children}
         </div>
     )
 }

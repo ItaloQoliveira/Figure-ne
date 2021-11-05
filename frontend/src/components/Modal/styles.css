@@ -1,0 +1,45 @@
+.modalBackground {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.closeIconWrapper {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+
+}
+
+.inputWrapper {
+  margin-bottom: 1vh;
+}
+
+.modalContainer {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 13px;
+  border: 5px solid #354a54;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 36vw;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+}
+
+.modalTitle {
+  color: #354a54;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 36px;
+}
