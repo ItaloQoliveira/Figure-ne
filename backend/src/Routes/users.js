@@ -46,7 +46,7 @@ router.post('/auth', async (req,res)=>{
 
         let token = createUserToken(user.id)
 
-        res.cookie('token', `${token}`, { httpOnly: true })
+        res.cookie('token', `${token}`)//, { httpOnly: true })
 
         res.status(200).send("Autenticação realizada com sucesso, token aplicado!");
 
