@@ -12,7 +12,8 @@ const createUserToken = (userid) =>{
 }
 
 
-router.post('/create', async(req,res)=>{
+
+router.post('/', async(req,res)=>{
     const {usuario,email, password} = req.body;
 
     if(!email || !password || !usuario) return res.status(400).send({error:'Houve um erro na criação de usuario, dados insuficientes'})
