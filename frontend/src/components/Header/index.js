@@ -38,7 +38,7 @@ const Header = (props) => {
           <FaSistrix className="searchIcon" size="20"/>
       </div>
       <nav className="nav">
-          <button className="navLink linkDivision" onClick={myAccountHandler}>{isLoggedIn ? 'Sua Conta' : 'Cadastrar'}</button>
+          <button className="navLink linkDivision" onClick={myAccountHandler}>{isLoggedIn ? 'Sua Loja' : 'Cadastrar'}</button>
           <NavLink className="navLink" to="/login" onClick={logoutHandler}>{isLoggedIn ? 'Logout' : 'Login'}</NavLink>
       </nav>
     </div>
