@@ -50,13 +50,5 @@ router.put('/', async (req, res) => {
     }
 })
 
-router.put('/movies/:id', function (req, res) {
-    Movie.findOneAndUpdate(req.params.id, { title: "the gift4", releaseYear: "2012", director: "stefan", genre: "horror" }, function (err) {
-        if (err) {
-            return res.send(err);
-        }
-        console.log({ message: "movie updated" });
-    });
-});
 
 module.exports = router;
