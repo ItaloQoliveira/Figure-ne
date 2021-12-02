@@ -42,7 +42,7 @@ router.put('/', async (req, res) => {
     const filter = { _id: _id }
     const update = { nome: nome, serie: serie, preco: preco, altura: altura, url: url, serie: serie }
     try {
-        let fiture = await figures.findOneAndUpdate(filter, update)
+        let figure = await figures.findOneAndUpdate(filter, update)
 
         res.status(204).send({ message: 'Figure atualizada com sucesso' })
     } catch (err) {
@@ -57,7 +57,7 @@ router.delete('/', async (req, res) => {
     const filter = { _id: _id }
     
     try {
-        let fiture = await figures.remove(filter)
+        let figure = await figures.remove(filter)
 
         res.status(204).send({ message: 'Figure excluido com sucesso' })
     } catch (err) {
