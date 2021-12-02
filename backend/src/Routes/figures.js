@@ -50,13 +50,20 @@ router.put('/', async (req, res) => {
     }
 })
 
-router.put('/movies/:id', function (req, res) {
-    Movie.findOneAndUpdate(req.params.id, { title: "the gift4", releaseYear: "2012", director: "stefan", genre: "horror" }, function (err) {
-        if (err) {
-            return res.send(err);
-        }
-        console.log({ message: "movie updated" });
-    });
-});
+router.delete('/', async (req, res) => {
+    const {_id} = req.body
+
+    if (!_id) return res.status(400).send({ error: 'Houve um erro no delete, sem id enviado' })
+    const filter = { _id: _id }
+    
+    try {
+        let fiture = await figures.remove(filter)
+
+        res.status(204).send({ message: 'Figure excluido com sucesso' })
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 
 module.exports = router;
