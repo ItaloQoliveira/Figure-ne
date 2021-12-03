@@ -35,7 +35,7 @@ describe('mongodb test', () => {
 
  // agora farei requisicoes pro figures add para testar a inclusao de uma figure
 
-describe("POST /figures/add", () => {
+describe("POST /figures", () => {
   describe("given nome, serie, preco, altura, url and email", () => {
 
     test("should respond with a 201 status code", async () => {
@@ -47,7 +47,7 @@ describe("POST /figures/add", () => {
         url:"url",
         email: "email"
       })
-      expect(response.statusCode).toBe(201)
+      expect(response.statusCode).toBe(200)
     })
   
  //agora testando se funciona sem algum dado, por exemplo enviando apenas um nome
@@ -62,10 +62,80 @@ describe("POST /figures/add", () => {
         {email: "email"}
       ]
       for (const body of bodyData) {
-        const response = await request(app).post("/figures/add").send(body)
+        const response = await request(app).post("/figures").send(body)
         expect(response.statusCode).toBe(400)
       }
     })
   })
 
 })});
+
+describe('GET /figures/email', function() {
+  it('should respond with a json and a status code of 200', function() {
+    return request(app)
+      .get('/figures/teste')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      
+  });
+});
+
+describe('PUT /figures failure', function() {
+  it('should respond with a status code of 400', function() {
+    return request(app)
+      .put('/figures')
+      .send({ email:'teste@teste.com'})
+      .expect(400)
+      
+  });
+});
+describe('PUT /figures', function() {
+  it('should respond with a status code of 200', function() {
+     return request(app)
+      .put('/figures')
+      .send({
+        "_id": "6184a19e7e7cbbc98b6a7fad",
+        "nome": "Gwen ",
+        "serie": "League of Legends",
+        "preco": "999999999999",
+        "altura": "145",
+        "url": "https://cdn.discordapp.com/attachments/597489801536733204/906285710007476276/Eynd27_WQAsPZjg.png"
+        
+      })
+      .expect(204)
+      
+  });
+});
+
+describe('POST /figures', function() {
+  it('should respond with a status code of 400', function() {
+     return request(app)
+      .post('/figures')
+      .send({
+        "nome": "teste ",
+        "serie": "teste",
+        "preco": "999999999999",
+        "altura": "100",
+        "email": "teste@teste.com.br"
+        
+      })
+      .expect(400)
+      
+  });
+});
+
+describe('POST /figures', function() {
+  it('should respond with a status code of 400', function() {
+     return request(app)
+      .post('/figures')
+      .send({
+        "nome": "teste ",
+        "serie": "teste",
+        "preco": "999999999999",
+        "email": "teste@teste.com.br"
+        
+      })
+      .expect(400)
+      
+  });
+});
