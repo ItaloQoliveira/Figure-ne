@@ -4,7 +4,7 @@ import Modal from "../../components/Modal";
 import PrimaryButton from "../../components/PrimaryButton";
 import { FaPlus } from "react-icons/fa";
 import "./styles.css";
-import FigureCard from "./FigureCard";
+import FigureCard from "../../components/FigureCard";
 import DeleteModal from "./DeleteModal";
 import { useSelector } from "react-redux";
 import fetchProducts from "../../utils/fetchProducts";
@@ -55,6 +55,7 @@ const MyStore = () => {
         <div className="productsWrapper">
           {figures.map((prod) => (
             <FigureCard
+              myStore
               key={prod._id}
               id={prod._id}
               name={prod.nome}

@@ -24,6 +24,7 @@ export const authSlice = createSlice({
 
 const figureInitialState = {
   chosedFigure: "",
+  searchedData: [],
 };
 
 export const figureSlice = createSlice({
@@ -33,12 +34,15 @@ export const figureSlice = createSlice({
     choseFigure: (state, { payload }) => {
       state.chosedFigure = payload;
     },
+    setSearchedData: (state, {payload}) => {
+      state.searchedData = [...payload];
+    }
   },
 });
 
 export const { logIn, logOut, setLoggedUser } = authSlice.actions;
 
-export const { choseFigure } = figureSlice.actions;
+export const { choseFigure, setSearchedData } = figureSlice.actions;
 
 export const store = configureStore({
   reducer: { auth: authSlice.reducer, figure: figureSlice.reducer },

@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { choseFigure } from "../../../store";
+import { choseFigure } from "../../store";
 
 const FigureCard = (props) => {
   const dispatch = useDispatch();
@@ -24,15 +24,27 @@ const FigureCard = (props) => {
 
   return (
     <div className="cardWrapper">
-        <FaEdit className="editIcon" size={20} onClick={() => {
-          dispatch(choseFigure(props.id))
-          props.setModalType('edit');
-          props.modalStatusHandler(true);
-        }}/>
-        <FaRegTrashAlt className="deleteIcon" size={20} onClick={() => {
-          dispatch(choseFigure(props.id))
-          props.deleteModal(true)
-        }}/>
+      {props.myStore && (
+        <FaEdit
+          className="editIcon"
+          size={20}
+          onClick={() => {
+            dispatch(choseFigure(props.id));
+            props.setModalType("edit");
+            props.modalStatusHandler(true);
+          }}
+        />
+      )}
+      {props.myStore && (
+        <FaRegTrashAlt
+          className="deleteIcon"
+          size={20}
+          onClick={() => {
+            dispatch(choseFigure(props.id));
+            props.deleteModal(true);
+          }}
+        />
+      )}
       <div className="cardImage">
         <img src={props.picture} alt="" />
       </div>

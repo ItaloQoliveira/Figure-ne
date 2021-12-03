@@ -9,6 +9,7 @@ import Cadastro from "./pages/Cadastro";
 import Login from "./pages/Login";
 import MyStore from "./pages/MyStore";
 import { useSelector } from "react-redux";
+import Search from "./pages/Search";
 
 const Routes = () => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -24,6 +25,9 @@ const Routes = () => {
             {isLoggedIn && <Switch>
                 <Route path="/mystore" component={MyStore}/>
             </Switch>}
+            {isLoggedIn && <Switch>
+                    <Route path="/search" component={Search}/>
+                </Switch>}
             <Route path='*'>
                 <Redirect to='/login'/>
             </Route>
