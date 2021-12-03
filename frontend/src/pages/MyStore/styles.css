@@ -1,12 +1,33 @@
 .container {
-    background-color: #F3F3F3;
-    height: 100vh;
+  background-color: #f3f3f3;
+  height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .addButton {
-    /* background-color: pink; */
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    margin-top: 3vh;
-    /* position: ; */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
+  transition: .2s linear;
+}
+
+.addButton:hover {
+    transform: scale(1.1);
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  min-height: 80vh;
+  padding-bottom: 5vh;
+}
+
+.productsWrapper {
+  margin-top: 2vh;
+  width: 85vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

@@ -15,7 +15,7 @@ const Cadastro = () => {
 
   const registerHandler = async () => {
     try {
-      const response = await fetch("http://localhost:3003/users/create", {
+      const response = await fetch("http://localhost:3003/users", {
         method: "POST",
         mode: 'cors',
         body: JSON.stringify({
